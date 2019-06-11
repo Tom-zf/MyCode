@@ -1,5 +1,3 @@
-package com.company;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -78,6 +76,15 @@ public class FileUtils {
             }
         }
         return flag;
+    }
+
+    public static void writeStream(InputStream input,OutputStream output) throws IOException {
+        byte[] buf = new byte[1024];
+        int len = 0;
+        while(( len = input.read(buf,0,buf.length)) != -1){
+            output.write(buf,0,len);
+            output.flush();
+        }
     }
 
     public static void main(String[] args){
